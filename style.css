@@ -1,0 +1,785 @@
+/* =========================================================
+   ATHULYA BOUTIQUE — INVENTORY APP
+   Clean spacing + consistent alignment
+   ========================================================= */
+
+:root {
+    --aubergine: #3d2637;
+    --aubergine-dark: #2b1a27;
+    --teal: #214f4b;
+    --gold: #b9985a;
+    --gold-light: #d8c18d;
+    --ivory: #fbf8f2;
+    --cream: #f5efe5;
+    --white: #ffffff;
+    --text: #332b30;
+    --muted: #7d7378;
+    --border: #e4dbd0;
+    --success: #486b55;
+    --danger: #9a5a5a;
+    --shadow: 0 12px 35px rgba(55, 36, 47, 0.08);
+    --radius: 16px;
+    --container: 760px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, rgba(216, 193, 141, 0.12), transparent 30%),
+        var(--ivory);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(185, 152, 90, 0.28);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   PAGE / CONTAINER
+   ========================================================= */
+
+.page {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.page.active {
+    display: block;
+}
+
+.container {
+    width: min(100% - 40px, var(--container));
+    margin: 0 auto;
+    padding: 42px 0 60px;
+}
+
+/* =========================================================
+   HOME
+   ========================================================= */
+
+.home-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 36px;
+    padding-bottom: 50px;
+}
+
+.boutique-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.logo {
+    display: block;
+    width: min(230px, 65vw);
+    height: auto;
+    max-height: 105px;
+    object-fit: contain;
+    margin: 0 auto 22px;
+}
+
+.boutique-header h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(38px, 7vw, 58px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--aubergine);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    max-width: 430px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.home-cards {
+    width: min(100%, 600px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.feature-card {
+    width: 100%;
+    min-height: 94px;
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr) 28px;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 22px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--text);
+    text-align: left;
+    box-shadow: 0 5px 20px rgba(55, 36, 47, 0.04);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(185, 152, 90, 0.55);
+    box-shadow: var(--shadow);
+}
+
+.feature-icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--cream);
+    color: var(--gold);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    line-height: 1;
+}
+
+.feature-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+}
+
+.feature-title {
+    color: var(--aubergine);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.feature-copy {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.feature-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 22px;
+    line-height: 1;
+}
+
+/* =========================================================
+   PAGE HEADERS
+   ========================================================= */
+
+.page-header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: 28px;
+    margin-bottom: 38px;
+}
+
+.btn-back {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    padding: 7px 0;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.btn-back:hover {
+    color: var(--aubergine);
+}
+
+.page-title-wrap {
+    min-width: 0;
+    text-align: left;
+}
+
+.section-label {
+    margin-bottom: 7px;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    line-height: 1.3;
+}
+
+.page-title-wrap h2 {
+    color: var(--aubergine);
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(34px, 6vw, 48px);
+    font-weight: 600;
+    line-height: 1.05;
+    margin-bottom: 9px;
+}
+
+.page-subtitle {
+    max-width: 500px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+
+.form {
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.form-group > label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--aubergine);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.help-text {
+    display: block;
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+input,
+select {
+    width: 100%;
+    height: 52px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: var(--white);
+    color: var(--text);
+    padding: 0 15px;
+    font-size: 14px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input::placeholder {
+    color: #aaa1a5;
+}
+
+input:hover,
+select:hover {
+    border-color: #d4c7bb;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(185, 152, 90, 0.1);
+    outline: none;
+}
+
+select {
+    appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--gold) 50%),
+        linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+    background-position:
+        calc(100% - 18px) 22px,
+        calc(100% - 13px) 22px;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    padding-right: 42px;
+}
+
+/* =========================================================
+   SPECIAL INPUTS
+   ========================================================= */
+
+.code-input-wrapper,
+.price-input {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    align-items: stretch;
+}
+
+.code-prefix,
+.currency {
+    flex: 0 0 auto;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    color: var(--aubergine);
+    font-weight: 600;
+}
+
+.code-prefix {
+    width: 54px;
+    border-right: 0;
+    border-radius: 11px 0 0 11px;
+    font-size: 13px;
+}
+
+.currency {
+    width: 48px;
+    border-right: 0;
+    border-radius: 11px 0 0 11px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+}
+
+.code-input-wrapper input,
+.price-input input {
+    min-width: 0;
+    height: 52px;
+    border-radius: 0 11px 11px 0;
+}
+
+.code-input-wrapper input:focus,
+.price-input input:focus {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+    border: 0;
+    border-radius: 11px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--aubergine);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--aubergine-dark);
+    box-shadow: 0 9px 22px rgba(61, 38, 55, 0.18);
+    transform: translateY(-1px);
+}
+
+.btn-large {
+    width: 100%;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-large span {
+    color: var(--gold-light);
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-group {
+    margin-bottom: 20px;
+}
+
+/* =========================================================
+   PRODUCT INFO
+   ========================================================= */
+
+.product-info {
+    width: 100%;
+    margin-top: 28px;
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.product-info.hidden,
+.info-message.hidden {
+    display: none;
+}
+
+.product-result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 17px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.result-label {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 25px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--teal);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.product-code-display,
+.product-detail {
+    display: grid;
+    grid-template-columns: minmax(110px, 34%) minmax(0, 1fr);
+    align-items: center;
+    gap: 20px;
+    min-height: 43px;
+    border-bottom: 1px solid #eee8e0;
+}
+
+.product-code-display {
+    padding-bottom: 5px;
+}
+
+.product-detail {
+    padding: 7px 0;
+}
+
+.product-code-display .label,
+.product-detail .label {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.product-code-display .value,
+.product-detail .value {
+    min-width: 0;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.product-info .form-group {
+    margin-top: 24px;
+    margin-bottom: 20px;
+}
+
+/* =========================================================
+   FILTER BUTTONS
+   ========================================================= */
+
+.filter-buttons {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin: 8px 0 24px;
+}
+
+.filter-btn {
+    min-height: 36px;
+    padding: 7px 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--gold-light);
+    color: var(--aubergine);
+}
+
+.filter-btn.active {
+    border-color: var(--aubergine);
+    background: var(--aubergine);
+    color: var(--white);
+}
+
+/* =========================================================
+   STOCK TABLE / DYNAMIC CONTENT
+   ========================================================= */
+
+.stock-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: 0 5px 20px rgba(55, 36, 47, 0.04);
+}
+
+.stock-container table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+}
+
+.stock-container th {
+    padding: 14px 16px;
+    background: var(--cream);
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.stock-container td {
+    padding: 15px 16px;
+    border-bottom: 1px solid #eee8e0;
+    color: var(--text);
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.stock-container tr:last-child td {
+    border-bottom: 0;
+}
+
+.stock-container tr:hover td {
+    background: #fdfbf8;
+}
+
+.loading {
+    padding: 35px 20px;
+    color: var(--muted);
+    text-align: center;
+    font-size: 13px;
+}
+
+/* =========================================================
+   INFO / EMPTY STATES
+   ========================================================= */
+
+.info-message {
+    width: 100%;
+    margin-top: 20px;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--cream);
+    color: var(--muted);
+    text-align: center;
+    font-size: 13px;
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast {
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 24px;
+    width: min(calc(100% - 32px), 420px);
+    transform: translate(-50%, 20px);
+    padding: 13px 18px;
+    border-radius: 11px;
+    background: var(--aubergine);
+    color: var(--white);
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.4;
+    box-shadow: 0 12px 30px rgba(43, 26, 39, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 640px) {
+    .container {
+        width: min(100% - 28px, var(--container));
+        padding-top: 28px;
+        padding-bottom: 40px;
+    }
+
+    .home-container {
+        padding-top: 28px;
+        padding-bottom: 35px;
+    }
+
+    .boutique-header {
+        margin-bottom: 30px;
+    }
+
+    .logo {
+        width: min(200px, 62vw);
+        margin-bottom: 17px;
+    }
+
+    .boutique-header h1 {
+        font-size: 42px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .home-cards {
+        gap: 12px;
+    }
+
+    .feature-card {
+        min-height: 82px;
+        grid-template-columns: 46px minmax(0, 1fr) 22px;
+        gap: 13px;
+        padding: 15px;
+        border-radius: 14px;
+    }
+
+    .feature-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        font-size: 26px;
+    }
+
+    .feature-title {
+        font-size: 22px;
+    }
+
+    .feature-copy {
+        font-size: 12px;
+    }
+
+    .feature-arrow {
+        font-size: 19px;
+    }
+
+    .page-header {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .btn-back {
+        justify-self: start;
+    }
+
+    .page-title-wrap h2 {
+        font-size: 39px;
+    }
+
+    .product-info {
+        padding: 18px;
+    }
+
+    .product-code-display,
+    .product-detail {
+        grid-template-columns: 42% minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .filter-buttons {
+        margin-bottom: 18px;
+    }
+}
+
+@media (max-width: 390px) {
+    .container {
+        width: min(100% - 22px, var(--container));
+    }
+
+    .feature-card {
+        grid-template-columns: 42px minmax(0, 1fr) 18px;
+        gap: 10px;
+        padding: 13px;
+    }
+
+    .feature-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .feature-title {
+        font-size: 20px;
+    }
+
+    .page-title-wrap h2 {
+        font-size: 35px;
+    }
+
+    .product-info {
+        padding: 15px;
+    }
+}

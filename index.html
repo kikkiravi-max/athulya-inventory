@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Athulya</title>
+
+    <!-- Athulya typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <div id="homePage" class="page active">
+
+        <div class="container home-container">
+
+            <header class="boutique-header">
+
+                <img
+                    src="assets/athulya-logo.png"
+                    alt="Athulya Boutique"
+                    class="logo"
+                >
+
+                <h1>Your Collection</h1>
+
+                <p class="subtitle">
+                    Every piece, beautifully accounted for.
+                </p>
+
+            </header>
+
+
+            <main class="home-cards">
+
+                <!-- ADD STOCK -->
+
+                <button
+                    type="button"
+                    class="feature-card"
+                    onclick="navigateTo('addPage')"
+                >
+
+                    <span class="feature-icon" aria-hidden="true">
+                        +
+                    </span>
+
+                    <span class="feature-content">
+
+                        <span class="feature-title">
+                            Add New Stock
+                        </span>
+
+                        <span class="feature-copy">
+                            Add a new piece
+                        </span>
+
+                    </span>
+
+                    <span class="feature-arrow" aria-hidden="true">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- SELL -->
+
+                <button
+                    type="button"
+                    class="feature-card"
+                    onclick="navigateTo('sellPage')"
+                >
+
+                    <span class="feature-icon" aria-hidden="true">
+                        ♡
+                    </span>
+
+                    <span class="feature-content">
+
+                        <span class="feature-title">
+                            Sell Product
+                        </span>
+
+                        <span class="feature-copy">
+                            Record a sale
+                        </span>
+
+                    </span>
+
+                    <span class="feature-arrow" aria-hidden="true">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- VIEW STOCK -->
+
+                <button
+                    type="button"
+                    class="feature-card"
+                    onclick="navigateTo('viewPage')"
+                >
+
+                    <span class="feature-icon" aria-hidden="true">
+                        ◌
+                    </span>
+
+                    <span class="feature-content">
+
+                        <span class="feature-title">
+                            View Stock
+                        </span>
+
+                        <span class="feature-copy">
+                            Browse your collection
+                        </span>
+
+                    </span>
+
+                    <span class="feature-arrow" aria-hidden="true">
+                        →
+                    </span>
+
+                </button>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         ADD NEW STOCK
+    ========================== -->
+
+    <div id="addPage" class="page">
+
+        <div class="container">
+
+            <div class="page-header">
+
+                <button
+                    type="button"
+                    class="btn-back"
+                    onclick="navigateTo('homePage')"
+                >
+                    ← Back
+                </button>
+
+                <div class="page-title-wrap">
+
+                    <p class="section-label">
+                        NEW PIECE
+                    </p>
+
+                    <h2>
+                        Add a New Piece
+                    </h2>
+
+                    <p class="page-subtitle">
+                        Add something beautiful to the collection.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form id="add-stock-form" class="form">
+
+                <!-- PRODUCT CODE -->
+
+                <div class="form-group">
+
+                    <label for="addCodeSuffix">
+                        Product Code
+                    </label>
+
+                    <div class="code-input-wrapper">
+
+                        <span
+                            id="codePrefix"
+                            class="code-prefix"
+                        >
+                            SA
+                        </span>
+
+                        <input
+                            type="text"
+                            id="addCodeSuffix"
+                            placeholder="001"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+                    <small class="help-text">
+                        Enter the number for this piece.
+                    </small>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="addDescription">
+                        Product Type
+                    </label>
+
+                    <select
+                        id="addDescription"
+                        required
+                    >
+
+                        <option
+                            value="Saree"
+                            selected
+                        >
+                            Saree
+                        </option>
+
+                        <option value="Salwar Material">
+                            Salwar Material
+                        </option>
+
+                        <option value="Coord Sets">
+                            Coord Sets
+                        </option>
+
+                        <option value="Readymade Kurti">
+                            Readymade Kurti
+                        </option>
+
+                        <option value="Readymade Salwar">
+                            Readymade Salwar
+                        </option>
+
+                        <option value="Shrug">
+                            Shrug
+                        </option>
+
+                        <option value="Fabric">
+                            Fabric
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ORIGINAL PRICE -->
+
+                <div class="form-group">
+
+                    <label for="addPrice">
+                        Original Price
+                    </label>
+
+                    <div class="price-input">
+
+                        <span class="currency">
+                            ₹
+                        </span>
+
+                        <input
+                            type="number"
+                            id="addPrice"
+                            placeholder="0"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- SELLING PRICE -->
+
+                <div class="form-group">
+
+                    <label for="addSellingPrice">
+                        Expected Selling Price
+                    </label>
+
+                    <div class="price-input">
+
+                        <span class="currency">
+                            ₹
+                        </span>
+
+                        <input
+                            type="number"
+                            id="addSellingPrice"
+                            placeholder="Optional"
+                            min="0"
+                            step="0.01"
+                        >
+
+                    </div>
+
+                    <small class="help-text">
+                        You can update this when the piece is sold.
+                    </small>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-large"
+                    id="addStockBtn"
+                >
+                    Add to Collection
+                    <span aria-hidden="true">✦</span>
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         SELL PRODUCT
+    ========================== -->
+
+    <div id="sellPage" class="page">
+
+        <div class="container">
+
+            <div class="page-header">
+
+                <button
+                    type="button"
+                    class="btn-back"
+                    onclick="navigateTo('homePage')"
+                >
+                    ← Back
+                </button>
+
+                <div class="page-title-wrap">
+
+                    <p class="section-label">
+                        POINT OF SALE
+                    </p>
+
+                    <h2>
+                        Sell a Piece
+                    </h2>
+
+                    <p class="page-subtitle">
+                        Find the piece and record its final price.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="form-group search-group">
+
+                <label for="sellSearchCode">
+                    Product Code
+                </label>
+
+                <input
+                    type="text"
+                    id="sellSearchCode"
+                    placeholder="Start typing a code..."
+                    autocomplete="off"
+                >
+
+                <small class="help-text">
+                    Search by product code.
+                </small>
+
+            </div>
+
+
+            <!-- PRODUCT RESULT -->
+
+            <div
+                id="sellProductInfo"
+                class="product-info hidden"
+            >
+
+                <div class="product-result-header">
+
+                    <span class="result-label">
+                        SELECTED PIECE
+                    </span>
+
+                    <span
+                        id="sellInfoStatus"
+                        class="status-badge"
+                    ></span>
+
+                </div>
+
+
+                <div class="product-code-display">
+
+                    <span class="label">
+                        Code
+                    </span>
+
+                    <span
+                        id="sellInfoCode"
+                        class="value"
+                    ></span>
+
+                </div>
+
+
+                <div class="product-detail">
+
+                    <span class="label">
+                        Description
+                    </span>
+
+                    <span
+                        id="sellInfoDescription"
+                        class="value"
+                    ></span>
+
+                </div>
+
+
+                <div class="product-detail">
+
+                    <span class="label">
+                        Original Price
+                    </span>
+
+                    <span
+                        id="sellInfoPrice"
+                        class="value"
+                    ></span>
+
+                </div>
+
+
+                <!-- SELLING PRICE -->
+
+                <div class="form-group">
+
+                    <label for="sellSellingPrice">
+                        Final Selling Price
+                    </label>
+
+                    <div class="price-input">
+
+                        <span class="currency">
+                            ₹
+                        </span>
+
+                        <input
+                            type="number"
+                            id="sellSellingPrice"
+                            placeholder="0"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn btn-primary btn-large"
+                    onclick="markAsSold()"
+                >
+                    Mark as Sold
+                    <span aria-hidden="true">✦</span>
+                </button>
+
+            </div>
+
+
+            <!-- NO RESULT -->
+
+            <div
+                id="sellNoProductMessage"
+                class="info-message hidden"
+            >
+                <p>
+                    No product found. Try another code.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         VIEW STOCK
+    ========================== -->
+
+    <div id="viewPage" class="page">
+
+        <div class="container">
+
+            <div class="page-header">
+
+                <button
+                    type="button"
+                    class="btn-back"
+                    onclick="navigateTo('homePage')"
+                >
+                    ← Back
+                </button>
+
+                <div class="page-title-wrap">
+
+                    <p class="section-label">
+                        THE COLLECTION
+                    </p>
+
+                    <h2>
+                        Your Collection
+                    </h2>
+
+                    <p class="page-subtitle">
+                        Browse everything currently in your boutique.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="form-group search-group">
+
+                <label for="viewSearchCode">
+                    Search
+                </label>
+
+                <input
+                    type="text"
+                    id="viewSearchCode"
+                    placeholder="Search by product code..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <div class="filter-buttons">
+
+                <button
+                    type="button"
+                    class="filter-btn active"
+                    onclick="applyFilter('all')"
+                >
+                    All
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    onclick="applyFilter('available')"
+                >
+                    Available
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    onclick="applyFilter('sold')"
+                >
+                    Sold
+                </button>
+
+            </div>
+
+
+            <!-- STOCK -->
+
+            <div
+                id="stockTableContainer"
+                class="stock-container"
+            >
+
+                <p class="loading">
+                    Loading your collection...
+                </p>
+
+            </div>
+
+
+            <!-- NO RESULTS -->
+
+            <div
+                id="stockNoResults"
+                class="info-message hidden"
+            >
+
+                <p>
+                    No pieces found.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         TOAST
+    ========================== -->
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <!-- APP JS -->
+
+    <script src="app.js"></script>
+
+</body>
+</html>
